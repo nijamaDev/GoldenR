@@ -2434,7 +2434,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.11425381, y: -0.18270448, z: 0.021382026, w: 0.97627246}
-  m_LocalPosition: {x: 1.66, y: 6.02, z: 0}
+  m_LocalPosition: {x: 2.61, y: 8.5, z: -1.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2455,8 +2455,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 1795021954}
   camTransform: {fileID: 963194228}
-  Offset: {x: 10, y: 10, z: 10}
-  SmoothTime: 0.3
+  SmoothTime: 1.4
+  damping: 2
 --- !u!4 &964165227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2608126189525512667, guid: dd1261e97d6e529f6a4b5eeec427110d, type: 3}

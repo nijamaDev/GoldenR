@@ -8,10 +8,10 @@ public class CameraController : MonoBehaviour
   //camera transform
   public Transform camTransform;
   // offset between camera and target
-  public Vector3 Offset;
+  private Vector3 Offset;
   // change this value to get desired smoothness
-  public float SmoothTime = 0.3f;
-
+  public float SmoothTime;
+  public float damping;
   // This value will change at the runtime depending on target movement. Initialize with zero vector.
   private Vector3 velocity = Vector3.zero;
 
@@ -27,6 +27,11 @@ public class CameraController : MonoBehaviour
     camTransform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, SmoothTime);
 
     // update rotation
-    transform.LookAt(Target);
+    //transform.LookAt(Target);
+    var rotation = Quaternion.LookRotation(Target.position - transform.position);
+    // rotation.x = 0; This is for limiting the rotation to the y axis. I needed this for my project so just
+    // rotation.z = 0;                 delete or add the lines you need to have it behave the way you want.
+    transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
+
   }
 }
